@@ -1,0 +1,359 @@
+             GGG   U   U  I  DDDD   EEEE
+            G   G  U   U  I  D   D  E
+            G      U   U  I  D   D  E
+            G  GG  U   U  I  D   D  EEE
+            G   G  U   U  I  D   D  E
+            G   G  U   U  I  D   D  E
+             GGG    UUU   I  DDDD   EEEE
+   
+ GUIDE Classification and Regression Trees and Forests
+ Version 32.0 (Build date: August 29, 2019)        
+ Compiled with NAG Fortran 6.2.0 on macOS Mojave 10.14.6     
+ Copyright (c) 1997-2019 Wei-Yin Loh. All rights reserved.
+ This software is based upon work supported by the U.S. Army Research Office,
+ the National Science Foundation and the National Institutes of Health.
+  
+ This job was started on 11/14/19 at 18:29
+  
+ Least squares regression tree
+ Pruning by cross-validation
+ Data description file: desc_reg.txt
+ Training sample file: bussiness_att.csv
+ Missing value code: NA
+ Records in data file start on line 2
+ Dependent variable is star
+ Piecewise constant model
+ Number of records in data file: 1703
+ Length of longest entry in data file: 13
+ Missing values found among categorical variables
+ Separate categories will be created for missing categorical variables
+  
+ Summary information for training sample of size 1703
+ d=dependent, b=split and fit cat variable using indicator variables,
+ c=split-only categorical, i=fit-only categorical (via indicators),
+ s=split-only numerical, n=split and fit numerical, f=fit-only numerical,
+ m=missing-value flag variable, p=periodic variable, w=weight,
+                                                                        #Codes/           
+                                                                        Levels/           
+  Column  Name                                  Minimum      Maximum    Periods   #Missing
+       1  ambience                         c                                  2
+       2  businessparking                  c                                  2
+       3  byappointmentonly                c                                  2
+       4  byob                             c                                  2
+       5  dietaryrestrictions_dairy-free   c                                  2
+       6  dietaryrestrictions_gluten-free  c                                  2
+       7  dietaryrestrictions_halal        c                                  2
+       8  dietaryrestrictions_kosher       c                                  2
+       9  dietaryrestrictions_soy-free     c                                  2
+      10  music_no_music                   c                                  2
+      11  music                            c                                  2
+      12  alcohol                          c                                  4
+      13  ambience_casual                  c                                  3
+      14  ambience_classy                  c                                  3
+      15  ambience_divey                   c                                  3
+      16  ambience_hipster                 c                                  3
+      17  ambience_intimate                c                                  3
+      18  ambience_romantic                c                                  3
+      19  ambience_touristy                c                                  3
+      20  ambience_trendy                  c                                  3
+      21  ambience_upscale                 c                                  3
+      22  bestnights_friday                c                                  3
+      23  bestnights_monday                c                                  3
+      24  bestnights_saturday              c                                  3
+      25  bestnights_sunday                c                                  3
+      26  bestnights_thursday              c                                  3
+      27  bestnights_tuesday               c                                  3
+      28  bestnights_wednesday             c                                  3
+      29  bestnights                       c                                  2
+      30  bikeparking                      c                                  3
+      31  businessacceptsbitcoin           c                                  3
+      32  businessacceptscreditcards       c                                  3
+      33  businessparking_garage           c                                  3
+      34  businessparking_lot              c                                  3
+      35  businessparking_street           c                                  3
+      36  businessparking_valet            c                                  3
+      37  businessparking_validated        c                                  3
+      38  byobcorkage                      c                                  4
+      39  caters                           c                                  3
+      40  coatcheck                        c                                  3
+      41  corkage                          c                                  3
+      42  dietaryrestrictions_vegan        c                                  3
+      43  dietaryrestrictions_vegetarian   c                                  3
+      44  dogsallowed                      c                                  3
+      45  drivethru                        c                                  3
+      46  goodfordancing                   c                                  3
+      47  goodforkids                      c                                  3
+      48  goodformeal_breakfast            c                                  3
+      49  goodformeal_brunch               c                                  3
+      50  goodformeal_dessert              c                                  3
+      51  goodformeal_dinner               c                                  3
+      52  goodformeal_latenight            c                                  3
+      53  goodformeal_lunch                c                                  3
+      54  goodformeal                      c                                  2
+      55  happyhour                        c                                  3
+      56  hastv                            c                                  3
+      57  music_background_music           c                                  3
+      58  music_dj                         c                                  3
+      59  music_jukebox                    c                                  3
+      60  music_karaoke                    c                                  3
+      61  music_live                       c                                  3
+      62  music_video                      c                                  3
+      63  noiselevel                       c                                  5
+      64  outdoorseating                   c                                  3
+      65  restaurantsattire                c                                  4
+      66  restaurantsdelivery              c                                  3
+      67  restaurantsgoodforgroups         c                                  3
+      68  restaurantspricerange2           c                                  6
+      69  restaurantsreservations          c                                  3
+      70  restaurantstableservice          c                                  3
+      71  restaurantstakeout               c                                  3
+      72  smoking                          c                                  4
+      73  wheelchairaccessible             c                                  3
+      74  wifi                             c                                  4
+      75  star                             d    1.000        5.000    
+  
+      Total  #cases w/   #missing
+     #cases    miss. D  ord. vals   #X-var   #N-var   #F-var   #S-var
+       1703          0          0        0        0        0        0
+     #P-var   #M-var   #B-var   #C-var   #I-var
+          0        0        0       74        0
+ No weight variable in data file
+ No. cases used for training: 1703
+  
+ Nodewise interaction tests on all variables
+ Pruning by v-fold cross-validation, with v = 10
+ Selected tree is based on mean of CV estimates
+ Number of SE's for pruned tree: 0.5000
+  
+ Split values for N and S variables based on exhaustive search
+ Maximum number of split levels: 11
+ Minimum node sample size: 8
+ Size and CV MSE and SE of subtrees:
+  Tree   #Tnodes  Mean MSE   SE(Mean)    BSE(Mean)  Median MSE  BSE(Median)
+    1      133   6.111E-01   2.390E-02   1.242E-02   6.024E-01   1.323E-02
+    2      132   6.111E-01   2.390E-02   1.242E-02   6.024E-01   1.323E-02
+    3      131   6.111E-01   2.390E-02   1.242E-02   6.024E-01   1.322E-02
+    4      130   6.111E-01   2.390E-02   1.242E-02   6.024E-01   1.322E-02
+    5      129   6.111E-01   2.390E-02   1.242E-02   6.024E-01   1.326E-02
+    6      128   6.111E-01   2.390E-02   1.242E-02   6.023E-01   1.324E-02
+    7      127   6.111E-01   2.390E-02   1.242E-02   6.023E-01   1.324E-02
+    8      126   6.110E-01   2.390E-02   1.241E-02   6.023E-01   1.322E-02
+    9      125   6.110E-01   2.390E-02   1.240E-02   6.023E-01   1.318E-02
+   10      123   6.110E-01   2.390E-02   1.240E-02   6.023E-01   1.318E-02
+   11      122   6.111E-01   2.390E-02   1.241E-02   6.023E-01   1.327E-02
+   12      120   6.110E-01   2.390E-02   1.254E-02   6.027E-01   1.373E-02
+   13      119   6.107E-01   2.390E-02   1.259E-02   6.027E-01   1.399E-02
+   14      118   6.107E-01   2.390E-02   1.259E-02   6.027E-01   1.398E-02
+   15      117   6.107E-01   2.390E-02   1.259E-02   6.027E-01   1.398E-02
+   16      116   6.106E-01   2.390E-02   1.257E-02   6.027E-01   1.384E-02
+   17      114   6.106E-01   2.391E-02   1.257E-02   6.027E-01   1.385E-02
+   18      112   6.100E-01   2.391E-02   1.275E-02   6.027E-01   1.413E-02
+   19      111   6.099E-01   2.392E-02   1.278E-02   6.031E-01   1.388E-02
+   20      110   6.100E-01   2.394E-02   1.277E-02   6.031E-01   1.405E-02
+   21      109   6.095E-01   2.394E-02   1.253E-02   6.038E-01   1.408E-02
+   22      107   6.096E-01   2.394E-02   1.251E-02   6.047E-01   1.439E-02
+   23      105   6.096E-01   2.394E-02   1.251E-02   6.047E-01   1.439E-02
+   24      103   6.096E-01   2.394E-02   1.251E-02   6.047E-01   1.439E-02
+   25      102   6.096E-01   2.394E-02   1.251E-02   6.047E-01   1.439E-02
+   26       99   6.096E-01   2.394E-02   1.251E-02   6.047E-01   1.439E-02
+   27       96   6.094E-01   2.394E-02   1.252E-02   6.038E-01   1.418E-02
+   28       95   6.094E-01   2.393E-02   1.253E-02   6.040E-01   1.435E-02
+   29       94   6.094E-01   2.393E-02   1.253E-02   6.040E-01   1.435E-02
+   30       93   6.092E-01   2.393E-02   1.258E-02   6.040E-01   1.461E-02
+   31       92   6.092E-01   2.393E-02   1.258E-02   6.040E-01   1.461E-02
+   32       91   6.088E-01   2.393E-02   1.229E-02   6.040E-01   1.459E-02
+   33       89   6.088E-01   2.393E-02   1.229E-02   6.040E-01   1.459E-02
+   34       88   6.088E-01   2.393E-02   1.229E-02   6.040E-01   1.459E-02
+   35       87   6.084E-01   2.392E-02   1.223E-02   6.040E-01   1.421E-02
+   36       86   6.070E-01   2.386E-02   1.236E-02   6.041E-01   1.561E-02
+   37       85   6.063E-01   2.385E-02   1.257E-02   6.034E-01   1.558E-02
+   38       84   6.058E-01   2.385E-02   1.276E-02   6.034E-01   1.585E-02
+   39       83   6.057E-01   2.385E-02   1.274E-02   6.033E-01   1.584E-02
+   40       81   6.058E-01   2.385E-02   1.270E-02   6.033E-01   1.579E-02
+   41       79   6.046E-01   2.386E-02   1.304E-02   6.025E-01   1.570E-02
+   42       77   6.023E-01   2.378E-02   1.351E-02   6.008E-01   1.609E-02
+   43       76   6.023E-01   2.378E-02   1.351E-02   6.008E-01   1.609E-02
+   44       75   6.023E-01   2.378E-02   1.351E-02   6.008E-01   1.609E-02
+   45       74   6.023E-01   2.378E-02   1.351E-02   6.008E-01   1.609E-02
+   46       71   6.023E-01   2.379E-02   1.340E-02   5.994E-01   1.593E-02
+   47       69   6.021E-01   2.373E-02   1.351E-02   5.994E-01   1.576E-02
+   48       68   6.001E-01   2.353E-02   1.170E-02   6.015E-01   1.655E-02
+   49       67   5.991E-01   2.352E-02   1.192E-02   5.977E-01   1.625E-02
+   50       66   5.991E-01   2.352E-02   1.192E-02   5.977E-01   1.625E-02
+   51       64   5.991E-01   2.352E-02   1.192E-02   5.977E-01   1.625E-02
+   52       63   5.991E-01   2.351E-02   1.194E-02   5.977E-01   1.599E-02
+   53       60   5.988E-01   2.346E-02   1.186E-02   5.977E-01   1.589E-02
+   54       57   5.983E-01   2.341E-02   1.177E-02   5.977E-01   1.503E-02
+   55       52   5.968E-01   2.343E-02   1.305E-02   6.035E-01   2.013E-02
+   56       47   5.942E-01   2.338E-02   1.359E-02   6.035E-01   2.158E-02
+   57       45   5.942E-01   2.338E-02   1.359E-02   6.035E-01   2.158E-02
+   58       43   5.942E-01   2.338E-02   1.359E-02   6.035E-01   2.158E-02
+   59       40   5.929E-01   2.335E-02   1.294E-02   6.022E-01   1.832E-02
+   60       39   5.898E-01   2.320E-02   1.251E-02   6.024E-01   1.758E-02
+   61       38   5.890E-01   2.293E-02   1.231E-02   5.953E-01   1.726E-02
+   62       35   5.884E-01   2.301E-02   1.257E-02   5.950E-01   1.764E-02
+   63       34   5.882E-01   2.303E-02   1.258E-02   5.950E-01   1.809E-02
+   64       30   5.883E-01   2.311E-02   1.278E-02   5.950E-01   1.830E-02
+   65       29   5.875E-01   2.325E-02   1.179E-02   5.789E-01   1.453E-02
+   66       28   5.881E-01   2.329E-02   1.166E-02   5.789E-01   1.382E-02
+   67       27   5.857E-01   2.323E-02   1.203E-02   5.762E-01   1.538E-02
+   68       25   5.846E-01   2.305E-02   1.265E-02   5.762E-01   1.655E-02
+   69++     24   5.701E-01   2.243E-02   1.146E-02   5.649E-01   1.232E-02
+   70       22   5.738E-01   2.219E-02   1.042E-02   5.788E-01   7.338E-03
+   71       21   5.807E-01   2.234E-02   8.628E-03   5.835E-01   7.625E-03
+   72       19   5.772E-01   2.207E-02   7.554E-03   5.815E-01   5.541E-03
+   73       12   5.765E-01   2.203E-02   7.066E-03   5.815E-01   5.204E-03
+   74       11   5.703E-01   2.133E-02   8.099E-03   5.769E-01   6.545E-03
+   75--      9   5.704E-01   2.118E-02   7.635E-03   5.725E-01   6.285E-03
+   76**      7   5.792E-01   2.143E-02   8.082E-03   5.725E-01   1.018E-02
+   77        6   5.837E-01   2.164E-02   7.672E-03   5.821E-01   9.074E-03
+   78        4   5.868E-01   2.157E-02   7.907E-03   5.912E-01   7.435E-03
+   79        3   5.901E-01   2.133E-02   9.274E-03   5.974E-01   1.080E-02
+   80        2   5.954E-01   2.137E-02   8.918E-03   5.988E-01   1.122E-02
+   81        1   6.084E-01   2.188E-02   9.763E-03   6.148E-01   1.153E-02
+  
+ 0-SE tree based on mean is marked with * and has 24 terminal nodes
+ 0-SE tree based on median is marked with + and has 24 terminal nodes
+ Selected-SE tree based on mean using naive SE is marked with **
+ Selected-SE tree based on mean using bootstrap SE is marked with --
+ Selected-SE tree based on median and bootstrap SE is marked with ++
+ * tree same as + tree
+ + tree same as ++ tree
+ * tree same as ++ tree
+  
+ Following tree is based on mean CV with naive SE estimate (**).
+  
+ Structure of final tree. Each terminal node is marked with a T.
+  
+ D-mean is mean of star in the node
+ Cases fit give the number of cases used to fit node
+ MSE is residual sum of squares divided by number of cases in node
+        Node    Total    Cases Matrix    Node      Node      Split          Interacting
+        label   cases      fit  rank    D-mean     MSE       variable       variable
+           1     1703     1703     1  3.458E+00  6.087E-01   businessparking_street 
+           2T     436      436     1  3.702E+00  3.534E-01   hastv 
+           3     1267     1267     1  3.374E+00  6.693E-01   goodformeal_dinner 
+           6      678      678     1  3.259E+00  7.656E-01   restaurantsgoodforgroups 
+          12T     185      185     1  3.492E+00  9.904E-01   restaurantsattire 
+          13      493      493     1  3.171E+00  6.550E-01   businessparking_street 
+          26      126      126     1  2.933E+00  8.534E-01   alcohol 
+          52T      86       86     1  2.721E+00  7.800E-01   restaurantsgoodforgroups 
+          53T      40       40     1  3.388E+00  7.242E-01   caters 
+          27      367      367     1  3.253E+00  5.627E-01   businessacceptscreditcards 
+          54T     349      349     1  3.216E+00  5.486E-01   caters 
+          55T      18       18     1  3.972E+00  3.080E-01   hastv 
+           7T     589      589     1  3.506E+00  5.268E-01   restaurantstableservice 
+  
+ Number of terminal nodes of final tree: 7
+ Total number of nodes of final tree: 13
+ Second best split variable (based on curvature test) at root node is goodformeal_dinner
+  
+ Regression tree:
+ At splits on categorical variables, values not in training data go to the right
+  
+ Node 1: businessparking_street = "yes"
+   Node 2: star-mean = 3.7018349
+ Node 1: businessparking_street /= "yes"
+   Node 3: goodformeal_dinner = "NA"
+     Node 6: restaurantsgoodforgroups = "NA"
+       Node 12: star-mean = 3.4918919
+     Node 6: restaurantsgoodforgroups /= "NA"
+       Node 13: businessparking_street = "NA"
+         Node 26: alcohol = "NA", "full_bar"
+           Node 52: star-mean = 2.7209302
+         Node 26: alcohol /= "NA", "full_bar"
+           Node 53: star-mean = 3.3875000
+       Node 13: businessparking_street /= "NA"
+         Node 27: businessacceptscreditcards = "yes"
+           Node 54: star-mean = 3.2163324
+         Node 27: businessacceptscreditcards /= "yes"
+           Node 55: star-mean = 3.9722222
+   Node 3: goodformeal_dinner /= "NA"
+     Node 7: star-mean = 3.5059423
+ 
+ ***************************************************************
+ 
+  
+ WARNING: p-values below not adjusted for split search. For a bootstrap solution see:
+  
+ 1. Loh et al. (2016), "Identification of subgroups with differential treatment effects
+ for longitudinal and multiresponse variables", Statistics in Medicine, v.35, 4837-4855.
+  
+ 2. Loh et al. (2019), "Subgroups from regression trees with adjustment for prognostic
+ effects and post-selection inference", Statistics in Medicine, v.38, 545-557.
+  
+Node 1: Intermediate node
+ A case goes into Node 2 if businessparking_street = "yes"
+ businessparking_street mode = "none"
+ Coefficients of least squares regression function:
+ Regressor                          Coefficient  t-stat      p-value
+ Constant                           3.4577       182.90       0.0000    
+ Mean of star = 3.45772
+ ----------------------------
+Node 2: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor                          Coefficient  t-stat      p-value
+ Constant                           3.7018       130.02       0.0000    
+ Mean of star = 3.70183
+ ----------------------------
+Node 3: Intermediate node
+ A case goes into Node 6 if goodformeal_dinner = "NA"
+ goodformeal_dinner mode = "NA"
+ ----------------------------
+Node 6: Intermediate node
+ A case goes into Node 12 if restaurantsgoodforgroups = "NA"
+ restaurantsgoodforgroups mode = "yes"
+ ----------------------------
+Node 12: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor                          Coefficient  t-stat      p-value
+ Constant                           3.4919       47.724       0.0000    
+ Mean of star = 3.49189
+ ----------------------------
+Node 13: Intermediate node
+ A case goes into Node 26 if businessparking_street = "NA"
+ businessparking_street mode = "none"
+ ----------------------------
+Node 26: Intermediate node
+ A case goes into Node 52 if alcohol = "NA", "full_bar"
+ alcohol mode = "NA"
+ ----------------------------
+Node 52: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor                          Coefficient  t-stat      p-value
+ Constant                           2.7209       28.570       0.0000    
+ Mean of star = 2.72093
+ ----------------------------
+Node 53: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor                          Coefficient  t-stat      p-value
+ Constant                           3.3875       25.176       0.0000    
+ Mean of star = 3.38750
+ ----------------------------
+Node 27: Intermediate node
+ A case goes into Node 54 if businessacceptscreditcards = "yes"
+ businessacceptscreditcards mode = "yes"
+ ----------------------------
+Node 54: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor                          Coefficient  t-stat      p-value
+ Constant                           3.2163       81.122       0.0000    
+ Mean of star = 3.21633
+ ----------------------------
+Node 55: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor                          Coefficient  t-stat      p-value
+ Constant                           3.9722       30.366       0.0000    
+ Mean of star = 3.97222
+ ----------------------------
+Node 7: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor                          Coefficient  t-stat      p-value
+ Constant                           3.5059       117.24       0.0000    
+ Mean of star = 3.50594
+ ----------------------------
+  
+ Proportion of variance (R-squared) explained by tree model: 0.0961
+ 
+ LaTeX code for tree is in bus.tex
+ Elapsed time in seconds: 4.1420
