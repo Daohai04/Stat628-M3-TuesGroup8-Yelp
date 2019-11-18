@@ -6,7 +6,6 @@
 - [Description](#description)
 - [Website](#usage)
 - [Contributors](#contributors)
-- [License](#license)
 
 ## Background
 
@@ -28,6 +27,9 @@ full.csv is the final data which contains all the advice for restaurant in Wisco
 website is the folder contains all the code related to website.<br/>
 review pre_visualization.ipynb is the jupyter notebook file to get some images of the reviews' text.<br/>
 review_model&advice.ipynb is the jupyter notebook file to make a model and give advice according to each business' reviews.<br/>
+guide folder:<br/>
+input contains the GUIDE input<br/>
+output contains the GUIDE output<br/>
 
 
 **image** folder:<br/>
