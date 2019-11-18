@@ -21,15 +21,22 @@ business_WI.csv is the business information about restaurant in Wisconsin.<br/>
 deal_review_WI.csv is the review we have turn into words.<br/>
 deal_tip_WI.csv is the tip we have turn into tip.<br/>
 full.csv is the final data which contains all the advice for restaurant in Wisconsin.<br/>
+<br/>
+***business*** folder:
+business_final_presentation1.json contains the data used for presentation1<br/>
+bussiness_advice.txt contains the data of advice given business<br/>
+bussiness_linear.csv contains the significant attributes in linear regression output<br/>
+<br/>
+***guide*** folder in business:<br/>
+input contains the GUIDE input<br/>
+output contains the GUIDE output<br/>
 
 
 **code** folder:<br/>
 website is the folder contains all the code related to website.<br/>
 review pre_visualization.ipynb is the jupyter notebook file to get some images of the reviews' text.<br/>
 review_model&advice.ipynb is the jupyter notebook file to make a model and give advice according to each business' reviews.<br/>
-*guide* folder:<br/>
-input contains the GUIDE input<br/>
-output contains the GUIDE output<br/>
+
 
 
 **image** folder:<br/>
