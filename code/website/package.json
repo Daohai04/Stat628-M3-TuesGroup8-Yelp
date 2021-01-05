@@ -7,7 +7,7 @@
     "npm": "6.9.0"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "highcharts": "^7.2.1",
     "highcharts-react-official": "^2.2.2",
     "immutable": "^3.8.2",
